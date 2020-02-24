@@ -23,5 +23,6 @@ urlpatterns = [
     url(r'^about/$', views.about),
     url(r'^contact/', views.contact),
     url(r'^blog/', include('blog.urls')),
+    url(r'^api/', include('blog_service.urls')),
     url(r'^admin/', admin.site.urls),
 ]
