@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>index</title>
+</head>
+<body>
+<h1> BLOG ({{ posts|length }} POSTS) </h1>
+
+<ul>
+
+        {% for post in posts %}
+            <article>
+            <h2><a href="/blog/posts/{{ post.id }}">#{{ post.id }} - {{ post.title }}</a></h2>
+              <p> {{ post.body|truncatewords:3 }}</p>
+              <p><a href="/blog/posts/{{ post.id }}">Lire la suite</a></p>
+            </article>
+
+            {% if not forloop.last %}
+                <hr>
+            {% endif %}
+
+            {% empty %}
+                <p> Sorry, no posts available.</p>
+        {% endfor %}
+
+</ul>
+
+</body>
+</html>
